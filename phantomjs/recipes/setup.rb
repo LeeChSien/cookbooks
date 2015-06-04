@@ -5,13 +5,13 @@ bash "install phantomjs" do
   group 'root'
   code <<-EOH
 
-    ARCHIVE_NAME=phantomjs-1.9.2-linux-x86_64
+    ARCHIVE_NAME=phantomjs-1.9.8-linux-x86_64
     FILE_NAME=${ARCHIVE_NAME}.tar.bz2
 
     CACHE_DIR=/usr/tmp
     BIN_DIR=/usr/bin
 
-    URL=https://phantomjs.googlecode.com/files/${FILE_NAME}
+    URL=https://bitbucket.org/ariya/phantomjs/downloads/${FILE_NAME}
 
     DEST=${CACHE_DIR}/${FILE_NAME}
 
