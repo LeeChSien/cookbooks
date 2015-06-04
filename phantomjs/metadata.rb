@@ -1,0 +1,6 @@
+name             'phantomjs'
+maintainer       'Chsien Lee'
+maintainer_email 'chsienlee@gmail.com'
+license          'All rights reserved'
+description      'Configures phantomjs'
+version          '0.1.1'
