@@ -11,7 +11,7 @@ bash "install phantomjs" do
     CACHE_DIR=/usr/tmp
     BIN_DIR=/usr/bin
 
-    URL=https://bitbucket.org/ariya/phantomjs/downloads/${FILE_NAME}
+    URL=http://mvn.quonb.org/repo/com/github/klieber/phantomjs/1.9.8/${FILE_NAME}
 
     DEST=${CACHE_DIR}/${FILE_NAME}
 
