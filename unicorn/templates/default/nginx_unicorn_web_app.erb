@@ -53,8 +53,8 @@ server {
     deny all;
   }
 
-  location ^~ /resource {
-    proxy_pass http://s3-ap-northeast-1.amazonaws.com/primeplus-development/;
+  location ^~ /primeplus-development {
+    proxy_pass http://s3-ap-northeast-1.amazonaws.com/;
   }
 
   error_page 500 502 503 504 /500.html;
