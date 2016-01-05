@@ -52,10 +52,11 @@ server {
     allow 127.0.0.1;
     deny all;
   }
-
-  location ^~ /resource {
+  
+  location ~* ^/resource/(.*) {
     set $s3_bucket        'primeplus-development.s3.amazonaws.com';
-    
+    set $url_full         '$1';
+
     proxy_http_version     1.1;
     proxy_set_header       Host $s3_bucket;
     proxy_set_header       Authorization '';
@@ -66,7 +67,10 @@ server {
     proxy_buffering        off;
     proxy_intercept_errors on;
 
-    proxy_pass http://primeplus-development.s3.amazonaws.com/;
+    resolver               172.16.0.23 valid=300s;
+    resolver_timeout       10s;
+
+    proxy_pass             http://$s3_bucket/resource/$url_full;
   }
 
   error_page 500 502 503 504 /500.html;
