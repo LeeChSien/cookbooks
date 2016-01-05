@@ -53,7 +53,19 @@ server {
     deny all;
   }
 
-  location ^~ /primeplus-development {
+  location ^~ /resource {
+    set $s3_bucket        'primeplus-development.s3.amazonaws.com';
+
+    proxy_http_version     1.1;
+    proxy_set_header       Host $s3_bucket;
+    proxy_set_header       Authorization '';
+    proxy_hide_header      x-amz-id-2;
+    proxy_hide_header      x-amz-request-id;
+    proxy_hide_header      Set-Cookie;
+    proxy_ignore_headers   "Set-Cookie";
+    proxy_buffering        off;
+    proxy_intercept_errors on;
+
     proxy_pass http://s3-ap-northeast-1.amazonaws.com/;
   }
 
