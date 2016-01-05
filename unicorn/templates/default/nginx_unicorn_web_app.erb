@@ -52,7 +52,7 @@ server {
     allow 127.0.0.1;
     deny all;
   }
-  
+
   location ~* ^/resource/(.*) {
     set $s3_bucket        'primeplus-development.s3.amazonaws.com';
     set $url_full         '$1';
@@ -67,7 +67,7 @@ server {
     proxy_buffering        off;
     proxy_intercept_errors on;
 
-    resolver               172.16.0.23 valid=300s;
+    resolver               8.8.4.4 8.8.8.8 valid=300s;
     resolver_timeout       10s;
 
     proxy_pass             http://$s3_bucket/resource/$url_full;
