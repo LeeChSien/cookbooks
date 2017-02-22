@@ -1,0 +1,7 @@
+name             'sidekiq_crononly'
+maintainer       'Chsien Lee'
+maintainer_email 'chsienlee@gmail.com'
+license          'All rights reserved'
+description      'Configures sidekiq'
+version          '0.1.1'
+depends          'deploy'
