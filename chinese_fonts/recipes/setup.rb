@@ -10,7 +10,7 @@ bash "grab chinese fonts" do
     FILE_NAME=fonts.zip
     DEST=${CACHE_DIR}/${FILE_NAME}
 
-    curl $URL -o $CACHE_DIR
+    curl $URL -o $DEST
 
     unzip ${CACHE_DIR}/${FILE_NAME} -C ${CACHE_DIR}/fonts
     mv ${CACHE_DIR}/fonts/*.ttc  /usr/share/fonts/
