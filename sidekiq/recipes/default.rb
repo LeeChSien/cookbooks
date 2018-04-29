@@ -10,10 +10,6 @@ node[:deploy].each do |application, deploy|
     group deploy[:group]
     owner deploy[:user]
     variables(:sidekiq => deploy[:sidekiq])
-
-    only_if do
-      deploy[:sidekiq]
-    end
   end
 
   template "#{node[:monit][:conf_dir]}/sidekiq_#{application}.monitrc" do
