@@ -1,0 +1,6 @@
+:concurrency: <%= @sidekiq[:concurrency] %>
+:pidfile: tmp/pids/sidekiq.pid
+:queues:
+<% @sidekiq[:queues].each do |queue, level| %>
+  - [<%= queue %>, <%= level %>]
+<% end %>

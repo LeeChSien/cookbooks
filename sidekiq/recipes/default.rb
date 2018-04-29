@@ -4,8 +4,12 @@
 #
 
 node[:deploy].each do |application, deploy|
-  file File.join(deploy[:deploy_to], 'shared', 'config', 'sidekiq.yml') do
-    content YAML.dump(node[:deploy][deploy[:deploy_to].to_sym][:sidekiq].to_hash)
+  template "#{deploy[:deploy_to]}/shared/config/sidekiq.yml" do
+    source "sidekiq.yml.erb"
+    mode "0660"
+    group deploy[:group]
+    owner deploy[:user]
+    variables(:sidekiq => deploy[:sidekiq])
   end
 
   template "#{node[:monit][:conf_dir]}/sidekiq_#{application}.monitrc" do
