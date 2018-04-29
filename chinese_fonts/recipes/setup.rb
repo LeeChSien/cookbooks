@@ -12,7 +12,7 @@ bash "grab chinese fonts" do
 
     curl $URL -o $DEST
 
-    mkdir ${CACHE_DIR}/fonts
+    mkdir -p ${CACHE_DIR}/fonts
     unzip ${CACHE_DIR}/${FILE_NAME} -d ${CACHE_DIR}/fonts
     mv ${CACHE_DIR}/fonts/*.ttc  /usr/share/fonts/
 
