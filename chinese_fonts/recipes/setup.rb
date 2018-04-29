@@ -12,7 +12,8 @@ bash "grab chinese fonts" do
 
     curl $URL -o $DEST
 
-    unzip ${CACHE_DIR}/${FILE_NAME} -C ${CACHE_DIR}/fonts
+    mkdir ${CACHE_DIR}/fonts
+    unzip ${CACHE_DIR}/${FILE_NAME} -d ${CACHE_DIR}/fonts
     mv ${CACHE_DIR}/fonts/*.ttc  /usr/share/fonts/
 
     EOH
