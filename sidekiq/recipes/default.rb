@@ -4,6 +4,10 @@
 #
 
 node[:deploy].each do |application, deploy|
+  file File.join(deploy[:deploy_to], 'shared', 'config', 'sidekiq.yml') do
+    content YAML.dump(node[:deploy][deploy[:deploy_to].to_sym][:sidekiq].to_hash)
+  end
+
   template "#{node[:monit][:conf_dir]}/sidekiq_#{application}.monitrc" do
     owner 'root'
     group 'root'
