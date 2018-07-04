@@ -1,4 +1,4 @@
-bash "restart" do
+bash "hypernova" do
 
     user 'root'
     group 'root'
@@ -11,5 +11,4 @@ bash "restart" do
 
     EOH
   
-  end
-  
+end
