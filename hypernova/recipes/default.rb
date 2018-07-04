@@ -3,7 +3,8 @@ bash "hypernova" do
     user 'root'
     group 'root'
     code <<-EOH
-      
+
+        source ~/.bashrc
         cd /srv/www/meetjobs_frontend/current/
 
         node app/config/ssr/hypernova.jsx > /dev/null &
